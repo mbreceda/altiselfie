@@ -3,13 +3,21 @@ import ReactDOM from 'react-dom/client'
 import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 
+import { RootLayout } from './pages/RootLayout';
+
+
+const NotFound = () => <>Page not found</>;
+
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route
-    path='/'
-    element={<div>Hello World</div>}
-    >
-    </Route>
+    <>
+      <Route path="*" element={<NotFound />}></Route>
+      <Route
+      path='/'
+      element={<RootLayout />}
+      >
+      </Route>
+    </>
   )
 )
 
