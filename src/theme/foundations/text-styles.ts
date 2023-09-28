@@ -1,16 +1,22 @@
-const textStyles = {
-  regular: {
-    fontSize: ["1rem"],
-    lineHeight: "1.5",
+const fontSizes = {
+  display: {
+    large: "3.26rem",
+    small: "2.75rem",
   },
-  small: {
-    fontSize: ["0.875rem"],
-    lineHeight: "1.42",
+  headings: {
+    1: "2.5rem",
+    2: "2.25rem",
+    3: "2rem",
+    4: "1.75rem",
+    5: "1.5rem",
+    6: "1.25rem",
   },
-  extraSmall: {
-    fontSize: ["0.75rem"],
-    lineHeight: "1.33",
+  paragraph: {
+    large: "1.125rem",
+    medium: "1rem",
+    small: "0.875rem",
+    extraSmall: "0.75rem",
   },
 };
 
-export default textStyles;
+export default fontSizes;

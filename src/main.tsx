@@ -5,6 +5,7 @@ import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } 
 import theme from "./theme";
 
 import { RootLayout } from './pages/RootLayout';
+import { AltiselfiLandingPage } from "./pages/LandingPage";
 
 
 const NotFound = () => <>Page not found</>;
@@ -17,6 +18,7 @@ const router = createBrowserRouter(
       path='/'
       element={<RootLayout />}
       >
+        <Route index element={<AltiselfiLandingPage />} />
       </Route>
     </>
   )

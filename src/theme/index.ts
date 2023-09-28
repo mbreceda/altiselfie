@@ -9,11 +9,18 @@ import styles from "./styles";
 // Foundation style overrides
 // Foundation available https://github.com/chakra-ui/chakra-ui/tree/main/packages/theme/src/foundations
 import colors from "./foundations/colors";
+import fontSizes from "./foundations/text-styles";
+
+// Single Part Component style overrides
+import MainContainer from "./components/main-container";
 
 const overrides = {
+  fontSizes,
   colors,
   styles,
-  components: {},
+  components: {
+    MainContainer,
+  },
   fonts: {
     heading: "Poppins, sans-serif",
     body: "Poppins, sans-serif",
