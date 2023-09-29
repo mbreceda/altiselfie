@@ -2,7 +2,11 @@ export type AllowedIcons =
   | "attach_file_add"
   | "altimetrik_logo"
   | "logotype"
-  | "isotype";
+  | "isotype"
+  | "arrow_back"
+  | "check"
+  | "selfimetrik"
+  | "separator";
 
 export interface IconProps {
   name: AllowedIcons;

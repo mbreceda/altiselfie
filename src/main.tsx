@@ -12,6 +12,7 @@ import "./index.css";
 
 import { RootLayout } from "./pages/RootLayout";
 import { AltiselfiLandingPage } from "./pages/LandingPage";
+import { Selfie } from "./pages/Selfie";
 
 const NotFound = () => <>Page not found</>;
 
@@ -21,6 +22,7 @@ const router = createBrowserRouter(
       <Route path="*" element={<NotFound />}></Route>
       <Route path="/" element={<RootLayout />}>
         <Route index element={<AltiselfiLandingPage />} />
+        <Route path="/upload" element={<Selfie />} />
       </Route>
     </>
   )
