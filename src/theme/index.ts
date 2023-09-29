@@ -13,12 +13,14 @@ import fontSizes from "./foundations/text-styles";
 
 // Single Part Component style overrides
 import MainContainer from "./components/main-container";
+import Button from "./components/button";
 
 const overrides = {
   fontSizes,
   colors,
   styles,
   components: {
+    Button,
     MainContainer,
   },
   fonts: {
