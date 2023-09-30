@@ -4,13 +4,14 @@ import { Icon } from "../Icon";
 import FileUploadProps from "./types";
 import { useNavigate } from "react-router-dom";
 
-import { useFileUpload } from "../../hooks";
+import { useFileUpload } from "../../hooks/useFileUpload";
 
 export default function FileUpload({ name, isRequired }: FileUploadProps) {
   const navigate = useNavigate();
   const inputRef = useRef<HTMLInputElement | null>(null);
-  const { file, handleChange } = useFileUpload();
   const buttonStyles = useMultiStyleConfig("Button", {});
+
+  const { file, handleChange } = useFileUpload();
 
   useEffect(() => {
     if (!file) return;

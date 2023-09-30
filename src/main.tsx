@@ -15,6 +15,8 @@ import { AltiselfiLandingPage } from "./pages/LandingPage";
 import { Selfie } from "./pages/Selfie";
 import { Download } from "./pages/Download";
 
+import FileUploadProvider from "./hooks/useFileUpload.tsx";
+
 const NotFound = () => <>Page not found</>;
 
 const router = createBrowserRouter(
@@ -32,8 +34,10 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById("root")! as HTMLElement).render(
   <React.StrictMode>
-    <ChakraProvider theme={theme}>
-      <RouterProvider router={router} />
-    </ChakraProvider>
+    <FileUploadProvider>
+      <ChakraProvider theme={theme}>
+        <RouterProvider router={router} />
+      </ChakraProvider>
+    </FileUploadProvider>
   </React.StrictMode>
 );
