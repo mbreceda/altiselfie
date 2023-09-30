@@ -6,7 +6,8 @@ export type AllowedIcons =
   | "arrow_back"
   | "check"
   | "selfimetrik"
-  | "separator";
+  | "separator"
+  | "triangle";
 
 export interface IconProps {
   name: AllowedIcons;

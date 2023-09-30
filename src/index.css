@@ -12,3 +12,15 @@
     height: 100%;
     z-index: -1;
 }
+#tooltip:before { 
+    content: '';
+    background: url("./src/assets/icons/triangle.svg");
+    position: absolute;
+    color: white;
+    width: 1rem;
+    height: 1rem;
+    top: -0.4rem;
+    left: 16rem;
+    transform: rotate(3.85rad);
+}
+
