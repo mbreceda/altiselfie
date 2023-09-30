@@ -5,13 +5,12 @@ import {
   Box,
   Text,
   useMultiStyleConfig,
-  Button,
 } from "@chakra-ui/react";
 import { Icon } from "../../components/Icon";
+import { FileUpload } from "../../components/FileUpload";
 
 export default function AltiselfiLandigPage() {
   const styles = useMultiStyleConfig("MainContainer", {});
-  const buttonStyles = useMultiStyleConfig("Button", {});
 
   return (
     <div id="showcase">
@@ -31,12 +30,7 @@ export default function AltiselfiLandigPage() {
           </Box>
 
           <Box>
-            <Button
-              sx={buttonStyles.pill}
-              leftIcon={<Icon name="attach_file_add" />}
-            >
-              Upload file
-            </Button>
+            <FileUpload name="fileUploader" isRequired={true} />
           </Box>
         </VStack>
       </Container>
