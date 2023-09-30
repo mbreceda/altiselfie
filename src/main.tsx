@@ -8,7 +8,7 @@ import {
   Route,
 } from "react-router-dom";
 import theme from "./theme";
-import "./index.css";
+export { default } from "./index.css";
 
 import { RootLayout } from "./pages/RootLayout";
 import { AltiselfiLandingPage } from "./pages/LandingPage";

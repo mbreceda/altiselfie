@@ -1,3 +1,4 @@
+// import { useNavigate } from "react-router-dom";
 import {
   VStack,
   HStack,
@@ -5,12 +6,22 @@ import {
   Text,
   Heading,
   Button,
+  Image,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
+
+import { useFileUpload } from "../../../../hooks/useFileUpload";
 
 export default function Edit() {
   const styles = useMultiStyleConfig("Edition", {});
   const buttonStyles = useMultiStyleConfig("Button", {});
+
+  // const navigate = useNavigate();
+  const { file } = useFileUpload();
+
+  if (!file) {
+    throw new Error();
+  }
 
   return (
     <VStack
@@ -21,7 +32,17 @@ export default function Edit() {
     >
       <HStack px="10" mt="5">
         <Box id="preview_box" sx={styles.previewer_box}>
-          <Box sx={styles.picture_box}></Box>
+          <Box sx={styles.picture_box}>
+            {file && (
+              <Image
+                src={file}
+                alt="file"
+                boxSize="35rem"
+                objectFit="cover"
+                sx={styles.picture_box}
+              />
+            )}
+          </Box>
           <Box sx={styles.tooltip_box}>
             <div id="tooltip"></div>
             <Text sx={styles.tooltip_box_heading}>Style meaning</Text>

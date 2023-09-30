@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import { Button, FormControl, useMultiStyleConfig } from "@chakra-ui/react";
 import { Icon } from "../Icon";
 import FileUploadProps from "./types";
@@ -13,15 +13,11 @@ export default function FileUpload({ name, isRequired }: FileUploadProps) {
 
   const { file, handleChange } = useFileUpload();
 
-  //   useEffect(() => {
-  //     if (!file) return;
-  //   }, [file]);
   if (file) {
     navigate("/upload");
   }
 
   return (
-    // <Form method="post">
     <FormControl isRequired={isRequired}>
       <input
         type="file"
@@ -38,6 +34,5 @@ export default function FileUpload({ name, isRequired }: FileUploadProps) {
         Upload file
       </Button>
     </FormControl>
-    // </Form>
   );
 }

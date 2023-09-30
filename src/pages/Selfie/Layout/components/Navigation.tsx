@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { HStack, Button, useMultiStyleConfig } from "@chakra-ui/react";
 import { Icon } from "../../../../components/Icon";
-import { useFileUpload } from "../../../../hooks/useFileUpload";
+// import { useFileUpload } from "../../../../hooks/useFileUpload";
 
 export default function Navigation() {
   const navigate = useNavigate();
