@@ -4,7 +4,9 @@ export default function RootLayout() {
   return (
     <>
       <main>
-        <Outlet />
+        <div id="showcase">
+          <Outlet />
+        </div>
       </main>
     </>
   );

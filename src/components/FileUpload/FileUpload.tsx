@@ -13,10 +13,12 @@ export default function FileUpload({ name, isRequired }: FileUploadProps) {
 
   const { file, handleChange } = useFileUpload();
 
-  useEffect(() => {
-    if (!file) return;
+  //   useEffect(() => {
+  //     if (!file) return;
+  //   }, [file]);
+  if (file) {
     navigate("/upload");
-  }, [file]);
+  }
 
   return (
     // <Form method="post">
