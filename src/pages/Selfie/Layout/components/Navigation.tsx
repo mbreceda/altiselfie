@@ -1,4 +1,4 @@
-import { HStack, Box, Button, useMultiStyleConfig } from "@chakra-ui/react";
+import { HStack, Button, useMultiStyleConfig } from "@chakra-ui/react";
 import { Icon } from "../../../../components/Icon";
 
 export default function Navigation() {

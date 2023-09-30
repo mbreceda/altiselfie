@@ -1,10 +1,8 @@
 import {
   VStack,
-  HStack,
   Box,
   Text,
   Heading,
-  Button,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 
