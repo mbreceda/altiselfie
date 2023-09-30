@@ -15,6 +15,7 @@ import fontSizes from "./foundations/text-styles";
 import MainContainer from "./components/main-container";
 import Button from "./components/button";
 import Edition from "./components/edition";
+import Download from "./components/download";
 
 const overrides = {
   fontSizes,
@@ -24,6 +25,7 @@ const overrides = {
     Button,
     MainContainer,
     Edition,
+    Download,
   },
   fonts: {
     heading: "Poppins, sans-serif",
