@@ -29,6 +29,41 @@ export default function Edit() {
     state?.backgrounds
   );
 
+  async function sendImage(imageFile: File, templateID: string): Promise<Blob> {
+    console.log("sendImage.imageFile", imageFile);
+    const url = "https://beta-sdk.photoroom.com/v1/render";
+    const form = new FormData();
+    form.append("templateId", templateID);
+    form.append("imageFile", imageFile);
+
+    const options = {
+      method: "POST",
+      headers: {
+        Accept: "image/png, application/json",
+        "x-api-key": "105661f5a1e079105ab94b98f25a9e6281795e0b",
+      },
+      body: form,
+    };
+
+    options.body = form;
+
+    try {
+      const response = await fetch(url, options);
+      if (!response.ok) {
+        console.error(response.json());
+        throw new Error("Network response was not ok");
+      }
+
+      const imageBlob: Blob = await response.blob();
+      console.log(imageBlob);
+
+      return imageBlob;
+    } catch (error) {
+      console.error(error);
+      return new Blob();
+    }
+  }
+
   return (
     <VStack
       height="100%"
@@ -70,9 +105,9 @@ export default function Edit() {
                   value,
                   label,
                   description,
-                  href,
                   selected,
-                  profilePicture,
+                  templateID,
+                  imageFile,
                 }) => (
                   <Button
                     key={`description-${value}`}
@@ -80,19 +115,24 @@ export default function Edit() {
                     sx={
                       selected ? buttonStyles.pill_selected : buttonStyles.pill
                     }
-                    onClick={() =>
-                      dispatch({
-                        type: BackgroundActions.UPDATE_BACKGROUND,
-                        option: {
-                          value,
-                          label,
-                          description,
-                          href,
-                          selected: true,
-                          profilePicture,
-                        },
-                      })
-                    }
+                    onClick={async () => {
+                      if (imageFile && templateID) {
+                        const imageLoaded = sendImage(imageFile, templateID);
+                        const img = URL.createObjectURL(await imageLoaded);
+                        const newProfilePicture = img;
+                        dispatch({
+                          type: BackgroundActions.UPDATE_BACKGROUND,
+                          option: {
+                            value,
+                            label,
+                            description,
+                            selected: true,
+                            profilePicture: newProfilePicture,
+                            href: newProfilePicture,
+                          },
+                        });
+                      }
+                    }}
                   >
                     {label}
                   </Button>
