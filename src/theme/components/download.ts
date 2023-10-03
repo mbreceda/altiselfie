@@ -5,13 +5,7 @@ const Download: ComponentMultiStyleConfig = {
     "download_box",
     "download_box_heading",
     "download_box_text",
-    "previewer_box",
-    "options_box",
     "picture_box",
-    "tooltip_box",
-    "tooltip_box_heading",
-    "tooltip_box_description",
-    "options_box_heading",
   ],
   baseStyle: {
     download_box: {
