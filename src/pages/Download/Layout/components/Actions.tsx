@@ -1,10 +1,21 @@
+import { saveAs } from "file-saver";
 import { useNavigate } from "react-router-dom";
 import { HStack, Button, useMultiStyleConfig } from "@chakra-ui/react";
 import { Icon } from "../../../../components/Icon";
 
+import { useFileUpload, BackgroundType } from "../../../../hooks/useFileUpload";
+
+function getSelectedBackground(backgrounds: BackgroundType[]): BackgroundType {
+  const [selected] = backgrounds.filter((b) => b.selected);
+  return selected;
+}
+
 export default function Actions() {
   const navigate = useNavigate();
   const buttonStyles = useMultiStyleConfig("Button", {});
+
+  const [state] = useFileUpload();
+  const { href } = getSelectedBackground(state?.backgrounds);
 
   return (
     <HStack
@@ -20,7 +31,15 @@ export default function Actions() {
       >
         Back
       </Button>
-      <Button sx={buttonStyles.pill} rightIcon={<Icon name="download" />}>
+      <Button
+        sx={buttonStyles.pill}
+        rightIcon={<Icon name="download" />}
+        onClick={() => {
+          if (href) {
+            saveAs(href.toString(), "selfimetrik.jpg");
+          }
+        }}
+      >
         Download
       </Button>
     </HStack>

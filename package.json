@@ -12,12 +12,15 @@
   "dependencies": {
     "@chakra-ui/react": "^2.8.1",
     "@fontsource/poppins": "^5.0.8",
+    "file-save": "^0.2.0",
+    "file-saver": "^2.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-inlinesvg": "^4.0.4",
     "react-router-dom": "^6.16.0"
   },
   "devDependencies": {
+    "@types/file-saver": "^2.0.5",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",

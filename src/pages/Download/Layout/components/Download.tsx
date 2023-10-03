@@ -7,13 +7,18 @@ import {
   Image,
 } from "@chakra-ui/react";
 
-// const download = (file: string) => {
-//   var newFile = new Blob([file], { type: "image/*" });
+import { useFileUpload, BackgroundType } from "../../../../hooks/useFileUpload";
 
-// };
+function getSelectedBackground(backgrounds: BackgroundType[]): BackgroundType {
+  const [selected] = backgrounds.filter((b) => b.selected);
+  return selected;
+}
 
 export default function Download() {
   const styles = useMultiStyleConfig("Download", {});
+  const [state] = useFileUpload();
+
+  const { href } = getSelectedBackground(state?.backgrounds);
 
   return (
     <VStack
@@ -30,12 +35,15 @@ export default function Download() {
         </Text>
       </Box>
       <Box sx={styles.picture_box}>
-        <Image
-          alt="file"
-          boxSize="35rem"
-          objectFit="cover"
-          sx={styles.picture_box}
-        />
+        {href && (
+          <Image
+            src={href}
+            alt="file"
+            boxSize="35rem"
+            objectFit="cover"
+            sx={styles.picture_box}
+          />
+        )}
       </Box>
     </VStack>
   );
