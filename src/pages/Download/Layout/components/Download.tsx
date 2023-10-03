@@ -6,7 +6,6 @@ import {
   useMultiStyleConfig,
   Image,
 } from "@chakra-ui/react";
-import { useFileUpload } from "../../../../hooks/useFileUpload";
 
 // const download = (file: string) => {
 //   var newFile = new Blob([file], { type: "image/*" });
@@ -15,7 +14,6 @@ import { useFileUpload } from "../../../../hooks/useFileUpload";
 
 export default function Download() {
   const styles = useMultiStyleConfig("Download", {});
-  const { file } = useFileUpload();
 
   return (
     <VStack
@@ -33,7 +31,6 @@ export default function Download() {
       </Box>
       <Box sx={styles.picture_box}>
         <Image
-          src={file}
           alt="file"
           boxSize="35rem"
           objectFit="cover"

@@ -1,4 +1,3 @@
-// import { useNavigate } from "react-router-dom";
 import {
   VStack,
   HStack,
@@ -10,18 +9,25 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 
-import { useFileUpload } from "../../../../hooks/useFileUpload";
+import {
+  useFileUpload,
+  BackgroundActions,
+  BackgroundType,
+} from "../../../../hooks/useFileUpload";
+
+function getSelectedBackground(backgrounds: BackgroundType[]): BackgroundType {
+  const [selected] = backgrounds.filter((b) => b.selected);
+  return selected;
+}
 
 export default function Edit() {
   const styles = useMultiStyleConfig("Edition", {});
   const buttonStyles = useMultiStyleConfig("Button", {});
+  const [state, dispatch] = useFileUpload();
 
-  // const navigate = useNavigate();
-  const { file } = useFileUpload();
-
-  if (!file) {
-    throw new Error();
-  }
+  const { value, description, href } = getSelectedBackground(
+    state?.backgrounds
+  );
 
   return (
     <VStack
@@ -33,9 +39,9 @@ export default function Edit() {
       <HStack px="10" mt="5">
         <Box id="preview_box" sx={styles.previewer_box}>
           <Box sx={styles.picture_box}>
-            {file && (
+            {href && (
               <Image
-                src={file}
+                src={href}
                 alt="file"
                 boxSize="35rem"
                 objectFit="cover"
@@ -45,9 +51,9 @@ export default function Edit() {
           </Box>
           <Box sx={styles.tooltip_box}>
             <div id="tooltip"></div>
-            <Text sx={styles.tooltip_box_heading}>Style meaning</Text>
-            <Text sx={styles.tooltip_box_description}>
-              Here we’ll tell people a fun fact regarding the style they chose.
+            {href && <Text sx={styles.tooltip_box_heading}>Style meaning</Text>}
+            <Text key={`button-${value}`} sx={styles.tooltip_box_description}>
+              {description}
             </Text>
           </Box>
         </Box>
@@ -59,17 +65,39 @@ export default function Edit() {
               </Heading>
             </Box>
             <HStack flexWrap="wrap" justifyContent="center" spacing={3} my={10}>
-              <Button sx={buttonStyles.pill}>True Altimetrian</Button>
-              <Button sx={buttonStyles.pill}>¡Viva Mexico!</Button>
-              <Button sx={buttonStyles.pill}>¡Viva Colombia!</Button>
-              <Button sx={buttonStyles.pill}>Spooky season</Button>
-              <Button sx={buttonStyles.pill}>Sugar Skull</Button>
-              <Button sx={buttonStyles.pill}>Christmas fever</Button>
-              <Button sx={buttonStyles.pill}>The big countdown</Button>
-              <Button sx={buttonStyles.pill}>Royal gift</Button>
-              <Button sx={buttonStyles.pill}>L.O.V.E</Button>
-              <Button sx={buttonStyles.pill}>Flower mania</Button>
-              <Button sx={buttonStyles.pill}>No background</Button>
+              {state.backgrounds.map(
+                ({
+                  value,
+                  label,
+                  description,
+                  href,
+                  selected,
+                  profilePicture,
+                }) => (
+                  <Button
+                    key={`description-${value}`}
+                    name={value}
+                    sx={
+                      selected ? buttonStyles.pill_selected : buttonStyles.pill
+                    }
+                    onClick={() =>
+                      dispatch({
+                        type: BackgroundActions.UPDATE_BACKGROUND,
+                        option: {
+                          value,
+                          label,
+                          description,
+                          href,
+                          selected: true,
+                          profilePicture,
+                        },
+                      })
+                    }
+                  >
+                    {label}
+                  </Button>
+                )
+              )}
             </HStack>
           </VStack>
         </Box>
