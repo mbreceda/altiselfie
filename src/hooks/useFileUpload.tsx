@@ -35,7 +35,8 @@ const initialState: State = {
     {
       value: "true_altimetrian",
       label: "True Altimetran",
-      href: "/src/assets/images/true_altimetrian.png",
+      href: new URL("/src/assets/images/true_altimetrian.png", import.meta.url)
+        .href,
       description:
         "The profile pic of someone fully immersed in the Altiverse. Portraying honor and trust, it’s said that having it as a profile pic can boost project performance and overall professional results.",
       selected: true,
@@ -44,7 +45,7 @@ const initialState: State = {
     {
       value: "viva_mexico",
       label: "¡Viva Mexico!",
-      href: "/src/assets/images/viva_mexico.jpg",
+      href: new URL("/src/assets/images/viva_mexico.jpg", import.meta.url).href,
       description:
         "Tequila and tacos are but the tip of the iceberg. We’re the creatives behind a world popular cuisine, one of the most biodiverse countries and home of several UNESCO World Heritage sites… as well as a FIFA ban for screaming somewhat inadequate cheers to opposing sides in football.",
       selected: false,
@@ -53,7 +54,8 @@ const initialState: State = {
     {
       value: "viva_colombia",
       label: "¡Viva Colombia!",
-      href: "/src/assets/images/viva_colombia.jpg",
+      href: new URL("/src/assets/images/viva_colombia.jpg", import.meta.url)
+        .href,
       description:
         "Happiness is our second name over at Colombia. We’re hosts of grandiose festivals, whose themes range from salsa dancing to ginormous flower sculptures. Some of the world’s most popular coffee comes from our fincas, spread around our beautifully biodiverse landscapes — where you can even find a liquid rainbow, if you know where to look.",
       selected: false,
@@ -62,7 +64,8 @@ const initialState: State = {
     {
       value: "spooky_season",
       label: "Spooky Season",
-      href: "/src/assets/images/spooky_season.jpg",
+      href: new URL("/src/assets/images/spooky_season.jpg", import.meta.url)
+        .href,
       description:
         "Did you know that Halloween was actually originated in Europe? Dating all the way back to medieval times, in Scotland an Ireland, young people dressed in songs went from door to door looking for food or money in exchange for performing songs, poems and other tricks. This tradition was known as “guising”.",
       selected: false,
@@ -71,7 +74,8 @@ const initialState: State = {
     {
       value: "sugar_skull",
       label: "Sugar Skull",
-      href: "/src/assets/images/viva_colombia.jpg",
+      href: new URL("/src/assets/images/viva_colombia.jpg", import.meta.url)
+        .href,
       description:
         "What do you know about The Day of the Dead? It is one of the most ancient Mexican tradition, with symbolisms that honor prehispanic cultures and rituals (like the cempasúchil flower, which is said to have spiritual traits that guided a deceased’s soul).",
       selected: false,
@@ -80,7 +84,8 @@ const initialState: State = {
     {
       value: "christmas_fever",
       label: "Christmas Fever",
-      href: "/src/assets/images/christmas_fever.jpg",
+      href: new URL("/src/assets/images/christmas_fever.jpg", import.meta.url)
+        .href,
       description:
         "A celebration we all know, love for the warmth and nostalgia it brings each year. Full of trees, hot cocoa and lots of jingles… Speaking of which, did you know that “Jingle Bells” was the first sing to be played in space? This was back in 1965, during NASA’s Gemini 6A space flight.",
       selected: false,
@@ -89,7 +94,8 @@ const initialState: State = {
     {
       value: "the_big_countdown",
       label: "The Big Countdown",
-      href: "/src/assets/images/the_big_countdown.jpg",
+      href: new URL("/src/assets/images/the_big_countdown.jpg", import.meta.url)
+        .href,
       description:
         "Okay, we have a deal for you. How many new year’s resolutions did you actually achieve this year? If the answer was less than none, then why don’t you try something out. Instead of overwhelming yourself with daunting quests that you’ll never achieve, why don’t you set a goal that actually sounds feasible (and interesting, for that matter)? It can be something like having a board games’ night with the kids once a month or singing up to some dance classes with you partner (talk to Pedro for more on that matter). Let’s set goals that we can and actually want to achieve. Because, lets be honest, we all hate the gym.",
       selected: false,
@@ -98,7 +104,7 @@ const initialState: State = {
     {
       value: "royal_gift",
       label: "Royal Gift",
-      href: "/src/assets/images/royal_gift.jpg",
+      href: new URL("/src/assets/images/royal_gift.jpg", import.meta.url).href,
       description:
         "Latin American children know that Santa was cool, but the real deal were the mighty Three Wise Men (also known as “Los Reyes Magos”). These were the guys who, for many of us, brought gifts home and for that they will be forever loved.",
       selected: false,
@@ -107,7 +113,7 @@ const initialState: State = {
     {
       value: "love",
       label: "L.O.V.E",
-      href: "/src/assets/images/love.jpg",
+      href: new URL("/src/assets/images/love.jpg", import.meta.url).href,
       description:
         "Giving red roses may be an obvious romantic gesture today, but it wasn't until the late 17th century that giving flowers became a popular custom. What kind of flowers are you planning to give this coming Valentine’s Day?",
       selected: false,
@@ -116,7 +122,8 @@ const initialState: State = {
     {
       value: "flower_mania",
       label: "Flower Mania",
-      href: "/src/assets/images/flower_mania.jpg",
+      href: new URL("/src/assets/images/flower_mania.jpg", import.meta.url)
+        .href,
       description:
         "Did you know that one of the most popular festivities in Colombia circles around big (and we mean really big) flower sculptures? La Feria de las Flores is a massive event taking place in Medellín, which celebrates women, fertility and life.",
       selected: false,
