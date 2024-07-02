@@ -40,7 +40,7 @@ export default function Edit() {
       method: "POST",
       headers: {
         Accept: "image/png, application/json",
-        "x-api-key": "ad15b13357b1795e2943220508b6a724dc5561af",
+        "x-api-key": "sandbox_ad15b13357b1795e2943220508b6a724dc5561af",
       },
       body: form,
     };
