@@ -23,7 +23,7 @@ export default function FileUpload({ name, isRequired }: FileUploadProps) {
       method: "POST",
       headers: {
         Accept: "image/png, application/json",
-        "x-api-key": "105661f5a1e079105ab94b98f25a9e6281795e0b",
+        "x-api-key": "ad15b13357b1795e2943220508b6a724dc5561af",
       },
       body: form,
     };
